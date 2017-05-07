@@ -3,12 +3,15 @@ package com.vektorel.projetakip.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
 import com.vektorel.projetakip.entity.UserEntity;
+import com.vektorel.projetakip.model.Person;
 import com.vektorel.projetakip.model.User;
 
 
@@ -50,6 +53,38 @@ public class DAO {
 		List<User> myList = criteria.list();
 		session.close();		
 		return myList;
+	}
+
+	public void addUser(User userAdd) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.save(userAdd);
+			tx.commit();
+		}catch (HibernateException e) {
+			if (tx!=null) tx.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
+	}
+
+	public Person addPerson(Person personAdd) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.save(personAdd);
+			tx.commit();
+		}catch (HibernateException e) {
+			if (tx!=null) tx.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return personAdd;
 	}
 	
 	

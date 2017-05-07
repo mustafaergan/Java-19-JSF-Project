@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.vektorel.projetakip.dao.DAO;
+import com.vektorel.projetakip.model.Person;
 import com.vektorel.projetakip.model.User;
 
 @ManagedBean
@@ -15,14 +16,23 @@ public class UserBean {
 
 	List<User> userList;
 	User userAdd;
+	Person personAdd;
 	
 	@PostConstruct
 	public void init(){
+		this.userAdd = new User();
+		this.personAdd = new Person();
 		this.userList =  DAO.getInstance().getUserList();
 	}
 	
-	public void addUserFonk(){
+	public String addUserFonk(){
+		Person person = DAO.getInstance().addPerson(this.personAdd);
+		this.userAdd.setPerson(person);
 		DAO.getInstance().addUser(this.userAdd);
+		this.userList =  DAO.getInstance().getUserList();
+		this.userAdd = new User();
+		this.personAdd = new Person();
+		return "kullanci.xhtml";
 	}
 	
 	public void setUserList(List<User> userList) {
@@ -39,6 +49,14 @@ public class UserBean {
 	
 	public User getUserAdd() {
 		return userAdd;
+	}
+	
+	public void setPersonAdd(Person personAdd) {
+		this.personAdd = personAdd;
+	}
+	
+	public Person getPersonAdd() {
+		return personAdd;
 	}
 	
 	
