@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:f="http://java.sun.com/jsf/core"
+  	  xmlns:ui="http://java.sun.com/jsf/facelets"
 	  xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,25 +11,7 @@
 </h:head>
 <body>
 
-	<h:form>
-    <p:growl autoUpdate="true"/>
- 
-    <p:panelMenu style="width:300px">
-        <p:submenu label="Proje">
-            <p:menuitem value="Listele" icon="ui-icon-disk" />
-            <p:menuitem value="Ekle - Sil"  icon="ui-icon-arrowrefresh-1-w" />
-        </p:submenu>
-        
-        <p:separator />
-
-    	<p:submenu label="Kullanıci İşlemleri">
-            <p:menuitem value="Kullanıcilar" url="kullanci.xhtml" icon="ui-icon-disk" />
-            <p:menuitem value="Kullanıci Ekle" url="kullanciekle.xhtml" icon="ui-icon-disk" />
-            <p:menuitem value="Yetki"  icon="ui-icon-arrowrefresh-1-w" />
-        </p:submenu>
-        
-    </p:panelMenu>
-</h:form>
+		<ui:include src="menu.xhtml"/>
 
 </body>
 </html>
