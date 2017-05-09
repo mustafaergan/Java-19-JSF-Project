@@ -10,10 +10,7 @@
 	<title>Insert title here</title>
 </h:head>
 
-
-
 <body>
-
 
 	<p:panelGrid columns="2">
 
@@ -21,21 +18,18 @@
 
 		<h:form>
 			<p:panelGrid columns="2">
-				<p:outputLabel value="Kullanıci Adi"/>
-				<p:inputText value ="#{userBean.userAdd.userName}" />
+				<p:outputLabel value="Proje Adi"/>
+				<p:inputText value ="#{projeBean.projeAdd.projeAdi}" />
 			
 			
 				<p:outputLabel value="Şifre"/>
-				<p:inputText value ="#{userBean.userAdd.password}" />
+				<p:inputText value ="#{projeBean.projeAdd.durum}" />
 			
-			
-				<p:outputLabel value="Person İsmi"/>
-				<p:inputText value ="#{userBean.personAdd.name}" />
-			
-			
-				<p:outputLabel value="Person Soyadı"/>
-				<p:inputText value ="#{userBean.personAdd.surname}" />
-			
+				<p:outputLabel value="Durum"/>
+		        <p:selectOneMenu id="durum" value="#{projeBean.selectedDurum}">
+			            <f:selectItem itemLabel="Durumlar" itemValue="" />
+			            <f:selectItems var="dur" itemLabel="#{dur.durum}" value="#{projeBean.durumList}" />
+        		</p:selectOneMenu>
 			
 				<p:outputLabel value=""/>
 				<p:commandButton value="Kaydet" action="#{userBean.addUserFonk}" />

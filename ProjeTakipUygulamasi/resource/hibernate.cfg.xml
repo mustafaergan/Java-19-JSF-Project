@@ -10,7 +10,7 @@
       <property name="hibernate.connection.requireSSL">true</property>
   
   <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.connection.password">MustafaHoca</property>
+  <property name="hibernate.connection.password">root</property>
   
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
  
@@ -19,7 +19,9 @@
   
   
   <mapping class="com.vektorel.projetakip.model.Person"/>
-    <mapping class="com.vektorel.projetakip.model.User"/>
+  <mapping class="com.vektorel.projetakip.model.User"/>
+  <mapping class="com.vektorel.projetakip.model.Durum"/>
+  <mapping class="com.vektorel.projetakip.model.Proje"/>
   
   
   

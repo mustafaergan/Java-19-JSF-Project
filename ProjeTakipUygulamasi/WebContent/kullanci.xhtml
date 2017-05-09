@@ -14,26 +14,10 @@
 
 <body>
 
-
 	<p:panelGrid columns="2">
 
-		<h:form>
-			<p:growl autoUpdate="true" />
-			<p:panelMenu style="width:300px">
-				<p:submenu label="Proje">
-					<p:menuitem value="Listele" icon="ui-icon-disk" />
-					<p:menuitem value="Ekle - Sil" icon="ui-icon-arrowrefresh-1-w" />
-				</p:submenu>
 
-				<p:separator />
-
-				<p:submenu label="Kullanıci İşlemleri">
-					<p:menuitem value="Kullanıcilar" icon="ui-icon-disk" />
-					<p:menuitem value="Yetki" icon="ui-icon-arrowrefresh-1-w" />
-				</p:submenu>
-
-			</p:panelMenu>
-		</h:form>
+		<ui:include src="menu.xhtml"/>
 
 
 		<h:form>

@@ -11,6 +11,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
 import com.vektorel.projetakip.entity.UserEntity;
+import com.vektorel.projetakip.model.Durum;
 import com.vektorel.projetakip.model.Person;
 import com.vektorel.projetakip.model.User;
 
@@ -85,6 +86,14 @@ public class DAO {
 			session.close();
 		}
 		return personAdd;
+	}
+
+	public List<Durum> getDurumList() {
+		Session session = sessionFactory.openSession();
+		Criteria criteria = session.createCriteria(Durum.class);
+		List<Durum> myList = criteria.list();
+		session.close();		
+		return myList;
 	}
 	
 	
