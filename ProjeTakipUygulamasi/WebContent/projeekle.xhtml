@@ -26,13 +26,12 @@
 				<p:inputText value ="#{projeBean.projeAdd.durum}" />
 			
 				<p:outputLabel value="Durum"/>
-		        <p:selectOneMenu id="durum" value="#{projeBean.selectedDurum}">
-			            <f:selectItem itemLabel="Durumlar" itemValue="" />
-			            <f:selectItems var="dur" itemLabel="#{dur.durum}" value="#{projeBean.durumList}" />
+		        <p:selectOneMenu id="durum" converter="durumConverter" value="#{projeBean.selectedDurum}">
+			            <f:selectItems var="dur" itemValue="#{dur}" itemLabel="#{dur.durum}" value="#{projeBean.durumList}" />
         		</p:selectOneMenu>
 			
 				<p:outputLabel value=""/>
-				<p:commandButton value="Kaydet" action="#{userBean.addUserFonk}" />
+				<p:commandButton value="Kaydet" action="#{projeBean.addProjeFonk}" />
 			
 			
 			</p:panelGrid>
