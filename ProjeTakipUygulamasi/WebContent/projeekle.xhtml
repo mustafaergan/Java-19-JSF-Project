@@ -21,9 +21,22 @@
 				<p:outputLabel value="Proje Adi"/>
 				<p:inputText value ="#{projeBean.projeAdd.projeAdi}" />
 			
+				<p:outputLabel value="Proje Açıklaması"/>
+				
+				<p:panelGrid>
+					<p:inputTextarea value="#{projeBean.projeAdd.projeAciklamasi}" rows="5" cols="30" counter="display" maxlength="50" counterTemplate="{0} şu kadar kaldı." autoResize="false" />
+					<h:outputText id="display" />
+				</p:panelGrid>
+				
+				<p:outputLabel value="Problem Bulguları"/>
+				<p:inputText value ="#{projeBean.projeAdd.problemBulgulari}" />
 			
-				<p:outputLabel value="Şifre"/>
-				<p:inputText value ="#{projeBean.projeAdd.durum}" />
+		        <p:outputLabel for="popup1" value="Baslangic Tarihi" />
+				<p:calendar id="popup1" value="#{projeBean.projeAdd.baslangicTarihi}" />
+			
+		        <p:outputLabel for="popup2" value="Hedef Tarihi" />
+				<p:calendar id="popup2" value="#{projeBean.projeAdd.hedefTarihi}" />
+			
 			
 				<p:outputLabel value="Durum"/>
 		        <p:selectOneMenu id="durum" converter="durumConverter" value="#{projeBean.selectedDurum}">

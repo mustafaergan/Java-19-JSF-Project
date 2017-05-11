@@ -18,18 +18,19 @@ public class ProjeBean {
 	private Durum selectedDurum;
 	String selectedDurumString;
 	private List<Durum> durumList;
+	private List<Proje> projeList;
 	
 	@PostConstruct
 	public void init(){
 		this.projeAdd = new Proje();
+		this.projeList = DAO.getInstance().getProjeList();
 		this.durumList = DAO.getInstance().getDurumList();
 	}
 	
 	public void addProjeFonk(){
-		System.out.println("****");
-		System.out.println(selectedDurum.getDurum());
-		System.out.println(selectedDurum.getId());
-		System.out.println("****");
+		projeAdd.setDurum(selectedDurum);
+		DAO.getInstance().addProje(projeAdd);
+		this.projeList = DAO.getInstance().getProjeList();
 	}
 	
 	public void setProjeAdd(Proje projeAdd) {
@@ -62,6 +63,14 @@ public class ProjeBean {
 	
 	public String getSelectedDurumString() {
 		return selectedDurumString;
+	}
+	
+	public void setProjeList(List<Proje> projeList) {
+		this.projeList = projeList;
+	}
+	
+	public List<Proje> getProjeList() {
+		return projeList;
 	}
 	
 }
