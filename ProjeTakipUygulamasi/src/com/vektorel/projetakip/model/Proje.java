@@ -28,11 +28,11 @@ public class Proje {
 	@Column(name = "baslangic_tarihi")
 	Date baslangicTarihi;
 	
-	@ManyToOne
-	Durum durum;
-	
 	@Column(name = "hedef_tarihi")
 	Date hedefTarihi;
+	
+	@ManyToOne
+	Durum durum;
 
 	public int getId() {
 		return id;

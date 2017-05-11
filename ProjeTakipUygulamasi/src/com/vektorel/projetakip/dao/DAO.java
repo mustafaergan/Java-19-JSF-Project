@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import com.vektorel.projetakip.entity.UserEntity;
 import com.vektorel.projetakip.model.Durum;
 import com.vektorel.projetakip.model.Person;
+import com.vektorel.projetakip.model.Proje;
 import com.vektorel.projetakip.model.User;
 
 
@@ -92,6 +93,29 @@ public class DAO {
 		Session session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(Durum.class);
 		List<Durum> myList = criteria.list();
+		session.close();		
+		return myList;
+	}
+
+	public void addProje(Proje projeAdd) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.save(projeAdd);
+			tx.commit();
+		}catch (HibernateException e) {
+			if (tx!=null) tx.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+	}
+
+	public List<Proje> getProjeList() {
+		Session session = sessionFactory.openSession();
+		Criteria criteria = session.createCriteria(Proje.class);
+		List<Proje> myList = criteria.list();
 		session.close();		
 		return myList;
 	}

@@ -22,22 +22,19 @@
 
 		<h:form>
 
-		<p:dataTable var="user" value="#{userBean.userList}">
+		<p:dataTable var="proje" value="#{projeBean.projeList}">
 		    <p:column headerText="Id">
-		        <h:outputText value="#{user.id}" />
+		        <h:outputText value="#{proje.id}" />
 		    </p:column>
 		 
-		    <p:column headerText="Kullanıci İsmi">
-		        <h:outputText value="#{user.userName}" />
+		    <p:column headerText="Proje Adı">
+		        <h:outputText value="#{proje.projeAdi}" />
 		    </p:column>
 		 
-		    <p:column headerText="Personel İsmi">
-		        <h:outputText value="#{user.person.name}" />
+		    <p:column headerText="Proje Aciklamasi">
+		        <h:outputText value="#{proje.projeAciklamasi}" />
 		    </p:column>
 		 
-		    <p:column headerText="Personel Soyad">
-		        <h:outputText value="#{user.person.surname}" />
-		    </p:column>
 		</p:dataTable>
 
 		</h:form>
