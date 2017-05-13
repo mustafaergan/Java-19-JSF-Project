@@ -19,6 +19,7 @@ public class ProjeBean {
 	String selectedDurumString;
 	private List<Durum> durumList;
 	private List<Proje> projeList;
+	private boolean excelControl = false;
 	
 	@PostConstruct
 	public void init(){
@@ -27,10 +28,17 @@ public class ProjeBean {
 		this.durumList = DAO.getInstance().getDurumList();
 	}
 	
-	public void addProjeFonk(){
+	public String addProjeFonk(){
 		projeAdd.setDurum(selectedDurum);
 		DAO.getInstance().addProje(projeAdd);
 		this.projeList = DAO.getInstance().getProjeList();
+		this.projeAdd = new Proje();
+		this.selectedDurum = new Durum();
+		return "guvenli/listele.xhtml";
+	}
+	
+	public void degistirciFnk(){
+		this.excelControl = (!this.excelControl);
 	}
 	
 	public void setProjeAdd(Proje projeAdd) {
@@ -71,6 +79,14 @@ public class ProjeBean {
 	
 	public List<Proje> getProjeList() {
 		return projeList;
+	}
+	
+	public void setExcelControl(boolean excelControl) {
+		this.excelControl = excelControl;
+	}
+	
+	public boolean isExcelControl() {
+		return excelControl;
 	}
 	
 }

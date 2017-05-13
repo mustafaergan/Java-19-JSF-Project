@@ -18,13 +18,19 @@
 
 		<h:form>
 			<p:panelGrid columns="2">
-				<p:outputLabel value="Proje Adi"/>
-				<p:inputText value ="#{projeBean.projeAdd.projeAdi}" />
+				<p:outputLabel for="projeInputText" value="Proje Adi"/>
+				<p:panelGrid>
+					<p:inputText id="projeInputText" requiredMessage="Bu alan boş geçilemez" value ="#{projeBean.projeAdd.projeAdi}" required="true" >
+	                	<f:validateLength minimum="2"  />
+					</p:inputText>
+		        	<p:messages for="projeInputText" autoUpdate="true"/>
+				</p:panelGrid>
+				
 			
 				<p:outputLabel value="Proje Açıklaması"/>
 				
 				<p:panelGrid>
-					<p:inputTextarea value="#{projeBean.projeAdd.projeAciklamasi}" rows="5" cols="30" counter="display" maxlength="50" counterTemplate="{0} şu kadar kaldı." autoResize="false" />
+					<p:inputTextarea value="#{projeBean.projeAdd.projeAciklamasi}" rows="5" cols="30" counter="display" maxlength="50" counterTemplate="Kalan : {0}  kaldı." autoResize="false" />
 					<h:outputText id="display" />
 				</p:panelGrid>
 				

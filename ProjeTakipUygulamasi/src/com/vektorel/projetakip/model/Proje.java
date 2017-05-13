@@ -16,7 +16,7 @@ public class Proje {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(name = "proje_adi")
+	@Column(name = "proje_adi", nullable = true)
 	String projeAdi;
 	
 	@Column(name = "proje_aciklamasi")
