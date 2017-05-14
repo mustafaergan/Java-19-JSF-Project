@@ -20,6 +20,7 @@ public class ProjeBean {
 	private List<Durum> durumList;
 	private List<Proje> projeList;
 	private boolean excelControl = false;
+	private List<Proje> filteredProjeList;
 	
 	@PostConstruct
 	public void init(){
@@ -87,6 +88,14 @@ public class ProjeBean {
 	
 	public boolean isExcelControl() {
 		return excelControl;
+	}
+	
+	public void setFilteredProjeList(List<Proje> filteredProjeList) {
+		this.filteredProjeList = filteredProjeList;
+	}
+	
+	public List<Proje> getFilteredProjeList() {
+		return filteredProjeList;
 	}
 	
 }

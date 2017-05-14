@@ -19,12 +19,12 @@
 		
 		<p:panelGrid id="solUst" columns="1">
 			<h:form rendered="#{!projeBean.excelControl}">
-			<p:dataTable var="proje" value="#{projeBean.projeList}">
-			    <p:column headerText="Id">
+			<p:dataTable var="proje" value="#{projeBean.projeList}" filteredValue="#{projeBean.filteredProjeList}">
+			    <p:column filterBy="#{proje.id}" headerText="Id" filterMatchMode="contains">
 			        <h:outputText value="#{proje.id}" />
 			    </p:column>
 			 
-			    <p:column headerText="Proje Adı">
+			    <p:column filterBy="#{proje.projeAdi}}" headerText="Proje Adı"  filterMatchMode="contains">
 			        <h:outputText value="#{proje.projeAdi}" />
 			    </p:column>
 			 
