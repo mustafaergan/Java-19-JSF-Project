@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import com.vektorel.projetakip.dao.DAO;
 import com.vektorel.projetakip.entity.UserEntity;
@@ -40,6 +41,11 @@ public class LoginBean implements Serializable{
 			this.kullaniciIcerede = true;
 			return "guvenli/anasayfa.xhtml?faces-redirect=true";
 		}
+	}
+	
+	public String loginOut(){
+		 FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+	 	 return "/index.xhtml?faces-redirect=true";
 	}
 	
 	
