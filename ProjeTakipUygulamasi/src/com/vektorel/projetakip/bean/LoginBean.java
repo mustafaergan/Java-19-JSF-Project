@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import com.vektorel.projetakip.dao.DAO;
@@ -45,7 +44,8 @@ public class LoginBean implements Serializable{
 	
 	public String loginOut(){
 		 FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-	 	 return "/index.xhtml?faces-redirect=true";
+		 this.kullaniciIcerede = false;
+		 return "/index.xhtml?faces-redirect=true";
 	}
 	
 	

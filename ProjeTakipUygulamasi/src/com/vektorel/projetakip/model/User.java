@@ -21,6 +21,8 @@ public class User {
 	
 	@OneToOne
 	private Person person;
+	
+	private int role;
 
 	public int getId() {
 		return id;
@@ -54,7 +56,11 @@ public class User {
 		this.person = person;
 	}
 	
+	public int getRole() {
+		return role;
+	}
 	
-	
-
+	public void setRole(int role) {
+		this.role = role;
+	}
 }
