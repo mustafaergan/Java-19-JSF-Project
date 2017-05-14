@@ -17,7 +17,7 @@
 
 			<p:separator />
 
-			<p:submenu label="Kullanıci İşlemleri">
+			<p:submenu label="Kullanıci İşlemleri" rendered="#{loginBean.mevcutUser.role == 1}">
 				<p:menuitem value="Kullanıcilar" url="kullanci.xhtml"
 					icon="ui-icon-disk" />
 				<p:menuitem value="Kullanıci Ekle" url="kullanciekle.xhtml"

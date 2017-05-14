@@ -23,7 +23,7 @@ public class LoginBean implements Serializable{
 	
 	private UserEntity userEntity;
 	private boolean kullaniciIcerede = false;
-	
+	private User mevcutUser;
 	
 	@PostConstruct
 	public void init(){
@@ -37,6 +37,7 @@ public class LoginBean implements Serializable{
 			return "fail.xhtml";
 		}
 		else{
+			this.mevcutUser = user;
 			this.kullaniciIcerede = true;
 			return "guvenli/anasayfa.xhtml?faces-redirect=true";
 		}
@@ -62,6 +63,14 @@ public class LoginBean implements Serializable{
 	}
 	public boolean isKullaniciIcerede() {
 		return kullaniciIcerede;
+	}
+	
+	public void setMevcutUser(User mevcutUser) {
+		this.mevcutUser = mevcutUser;
+	}
+	
+	public User getMevcutUser() {
+		return mevcutUser;
 	}
 	
 }
